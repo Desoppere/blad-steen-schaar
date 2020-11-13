@@ -4,13 +4,13 @@ function SpelerBSS () {
     while (!(input.buttonIsPressed(Button.A)) && !(input.buttonIsPressed(Button.B) && !(input.buttonIsPressed(Button.AB)))) {
     	
     }
-    if (input.buttonIsPressed(Button.A)) {
+    if (input.buttonIsPressed(Button.AB)) {
         KeuzeBSS = 0
     }
     if (input.buttonIsPressed(Button.B)) {
         KeuzeBSS = 1
     }
-    if (input.buttonIsPressed(Button.AB)) {
+    if (input.buttonIsPressed(Button.A)) {
         KeuzeBSS = 2
     }
 }
