@@ -2,20 +2,7 @@
 function SpelerBSS () {
     // Wachten tot dat er een keuze gemaakt wordt.
     while (!(input.buttonIsPressed(Button.A)) && !(input.buttonIsPressed(Button.B) && !(input.buttonIsPressed(Button.AB)))) {
-        basic.showLeds(`
-            . . # . .
-            . # . # .
-            . . . # .
-            . . # . .
-            . . # . .
-            `)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
+    	
     }
     if (input.buttonIsPressed(Button.A)) {
         KeuzeBSS = 0
@@ -65,8 +52,17 @@ function beslis () {
             . . . . .
             `)
         basic.pause(WachtTijd)
+        KeuzeBSS2()
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
         SpelerBSS()
     } else if ((KeuzeBSS == 0 && WaardeBSS == 1) == true) {
+        SCspeler += 1
         basic.showIcon(IconNames.Happy)
         basic.pause(WachtTijd)
         basic.showLeds(`
@@ -78,6 +74,7 @@ function beslis () {
             `)
         basic.pause(WachtTijd)
     } else if ((KeuzeBSS == 0 && WaardeBSS == 2) == true) {
+        SCmicrobit += 1
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -95,6 +92,7 @@ function beslis () {
             `)
         basic.pause(WachtTijd)
     } else if ((KeuzeBSS == 1 && WaardeBSS == 0) == true) {
+        SCmicrobit += 1
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -112,6 +110,9 @@ function beslis () {
             `)
         basic.pause(WachtTijd)
     } else if ((KeuzeBSS == 1 && WaardeBSS == 2) == true) {
+        SCspeler += 1
+        basic.showIcon(IconNames.Happy)
+        basic.pause(WachtTijd)
         basic.showLeds(`
             . . # . .
             . . . . .
@@ -120,9 +121,8 @@ function beslis () {
             # . # # #
             `)
         basic.pause(WachtTijd)
-        basic.showIcon(IconNames.Happy)
-        basic.pause(WachtTijd)
     } else if ((KeuzeBSS == 2 && WaardeBSS == 0) == true) {
+        SCspeler += 1
         basic.showIcon(IconNames.Happy)
         basic.pause(WachtTijd)
         basic.showLeds(`
@@ -134,6 +134,7 @@ function beslis () {
             `)
         basic.pause(WachtTijd)
     } else if ((KeuzeBSS == 2 && WaardeBSS == 1) == true) {
+        SCmicrobit += 1
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -164,6 +165,8 @@ let WaardeBSS = 0
 let KeuzeBSS = 0
 let WachtTijd = 0
 WachtTijd = 1000
+let SCspeler = 0
+let SCmicrobit = 0
 basic.forever(function () {
     KeuzeBSS2()
     Aftel()
