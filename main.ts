@@ -1,6 +1,8 @@
 let KeuzeBSS2 = 0
 let WaardeBSS = 0
+// keuze BSS van de Speler
 function SpelerBSS () {
+    // Wachten tot dat er een keuze gemaakt wordt.
     while (!(input.buttonIsPressed(Button.A)) && !(input.buttonIsPressed(Button.B) && !(input.buttonIsPressed(Button.AB)))) {
         basic.showLeds(`
             . . # . .
@@ -35,6 +37,7 @@ input.onButtonPressed(Button.A, function () {
 function KeuzeBSS () {
     WaardeBSS = randint(0, 2)
 }
+// Aftellen naar blad Steen Schaar
 function Aftel () {
     basic.showLeds(`
         # # # # #
