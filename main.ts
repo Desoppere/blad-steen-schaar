@@ -29,10 +29,6 @@ function SpelerBSS () {
         KeuzeBSS2 = 2
     }
 }
-input.onButtonPressed(Button.A, function () {
-    KeuzeBSS()
-    basic.showNumber(WaardeBSS)
-})
 // Laat de microbit zijn Blad Steen of Schaar kiezen.0=Blad 1=Steen 2=Schaar
 function KeuzeBSS () {
     WaardeBSS = randint(0, 2)
@@ -61,6 +57,20 @@ function Aftel () {
         . . . . .
         `)
 }
+function beslis () {
+    if (WaardeBSS == KeuzeBSS2) {
+        basic.showLeds(`
+            . . . . .
+            . # # # .
+            . . . . .
+            . # # # .
+            . . . . .
+            `)
+        SpelerBSS()
+    } else {
+    	
+    }
+}
 basic.forever(function () {
     KeuzeBSS()
     Aftel()
@@ -71,5 +81,7 @@ basic.forever(function () {
         . . . . .
         . . . . .
         `)
+    // keuze BSS van de Speler
     SpelerBSS()
+    beslis()
 })
