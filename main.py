@@ -1,3 +1,5 @@
+let KeuzeBSS = 0
+let WaardeBSS = 0
 // keuze BSS van de Speler
 function SpelerBSS () {
     // Wachten tot dat er een keuze gemaakt wordt.
@@ -65,9 +67,8 @@ function beslis () {
             . . . . .
             `)
         SpelerBSS()
-    } else if ((KeuzeBSS == 0 && WaardeBSS == 1) == true) {
+    } else if (KeuzeBSS == 0 && WaardeBSS == 1) {
         basic.showIcon(IconNames.Happy)
-        basic.pause(WachtTijd)
         basic.showLeds(`
             # # # # #
             . . . . .
@@ -75,24 +76,6 @@ function beslis () {
             . # # # .
             . # # # .
             `)
-        basic.pause(WachtTijd)
-    } else if ((KeuzeBSS == 0 && WaardeBSS == 2) == true) {
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            . # # # .
-            # . . . #
-            `)
-        basic.pause(WachtTijd)
-        basic.showLeds(`
-            # # # # #
-            . . . . .
-            # . # # #
-            . # . . .
-            # . # # #
-            `)
-        basic.pause(WachtTijd)
     } else {
         basic.showLeds(`
             . . . . .
@@ -103,12 +86,8 @@ function beslis () {
             `)
     }
 }
-let WaardeBSS = 0
-let KeuzeBSS = 0
-let WachtTijd = 0
-WachtTijd = 1000
 basic.forever(function () {
-    KeuzeBSS2()
+    KeuzeBSS()
     Aftel()
     basic.showLeds(`
         . . . . .
