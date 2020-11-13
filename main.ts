@@ -64,6 +64,7 @@ function beslis () {
             . # # # .
             . . . . .
             `)
+        basic.pause(WachtTijd)
         SpelerBSS()
     } else if ((KeuzeBSS == 0 && WaardeBSS == 1) == true) {
         basic.showIcon(IconNames.Happy)
@@ -93,13 +94,69 @@ function beslis () {
             # . # # #
             `)
         basic.pause(WachtTijd)
-    } else {
+    } else if ((KeuzeBSS == 1 && WaardeBSS == 0) == true) {
         basic.showLeds(`
             . . . . .
+            . # . # .
             . . . . .
+            . # # # .
+            # . . . #
+            `)
+        basic.pause(WachtTijd)
+        basic.showLeds(`
+            . # # # .
+            . # # # .
+            . # # # .
             . . . . .
+            # # # # #
+            `)
+        basic.pause(WachtTijd)
+    } else if ((KeuzeBSS == 1 && WaardeBSS == 2) == true) {
+        basic.showLeds(`
+            . . # . .
             . . . . .
+            # . # # #
+            . # . . .
+            # . # # #
+            `)
+        basic.pause(WachtTijd)
+        basic.showIcon(IconNames.Happy)
+        basic.pause(WachtTijd)
+    } else if ((KeuzeBSS == 2 && WaardeBSS == 0) == true) {
+        basic.showIcon(IconNames.Happy)
+        basic.pause(WachtTijd)
+        basic.showLeds(`
+            # . # # #
+            . # . . .
+            # . # # #
             . . . . .
+            # # # # #
+            `)
+        basic.pause(WachtTijd)
+    } else if ((KeuzeBSS == 2 && WaardeBSS == 1) == true) {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            . # # # .
+            # . . . #
+            `)
+        basic.pause(WachtTijd)
+        basic.showLeds(`
+            # . # # #
+            . # . . .
+            # . # # #
+            . . . . .
+            . . # . .
+            `)
+        basic.pause(WachtTijd)
+    } else {
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
             `)
     }
 }
