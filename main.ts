@@ -1,16 +1,20 @@
 // keuze BSS van de Speler
 function SpelerBSS () {
+    basic.pause(200)
     // Wachten tot dat er een keuze gemaakt wordt.
     while (!(input.buttonIsPressed(Button.A)) && !(input.buttonIsPressed(Button.B) && !(input.buttonIsPressed(Button.AB)))) {
-    	
+        basic.pause(100)
     }
+    basic.pause(200)
     if (input.buttonIsPressed(Button.AB)) {
         KeuzeBSS = 2
+        basic.pause(500)
     }
     if (input.buttonIsPressed(Button.B)) {
         KeuzeBSS = 1
     }
     if (input.buttonIsPressed(Button.A)) {
+        led.plot(KeuzeBSS, 0)
         KeuzeBSS = 0
     }
 }
@@ -42,26 +46,31 @@ function Aftel () {
         . . . . .
         `)
 }
+function doenNiets () {
+	
+}
 function beslis () {
-    if (KeuzeBSS == WaardeBSS) {
+    if ((KeuzeBSS == 2 && WaardeBSS == 1) == true) {
+        music.startMelody(music.builtInMelody(Melodies.Wawawawaa), MelodyOptions.Once)
+        SCmicrobit += 1
         basic.showLeds(`
             . . . . .
-            . # # # .
+            . # . # .
             . . . . .
             . # # # .
-            . . . . .
+            # . . . #
             `)
         basic.pause(WachtTijd)
-        KeuzeBSS2()
         basic.showLeds(`
+            # . # # #
+            . # . . .
+            # . # # #
             . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
+            . . # . .
             `)
-        SpelerBSS()
+        basic.pause(WachtTijd)
     } else if ((KeuzeBSS == 0 && WaardeBSS == 1) == true) {
+        music.startMelody(music.builtInMelody(Melodies.JumpUp), MelodyOptions.Once)
         SCspeler += 1
         basic.showIcon(IconNames.Happy)
         basic.pause(WachtTijd)
@@ -74,6 +83,7 @@ function beslis () {
             `)
         basic.pause(WachtTijd)
     } else if ((KeuzeBSS == 0 && WaardeBSS == 2) == true) {
+        music.startMelody(music.builtInMelody(Melodies.Wawawawaa), MelodyOptions.Once)
         SCmicrobit += 1
         basic.showLeds(`
             . . . . .
@@ -92,6 +102,7 @@ function beslis () {
             `)
         basic.pause(WachtTijd)
     } else if ((KeuzeBSS == 1 && WaardeBSS == 0) == true) {
+        music.startMelody(music.builtInMelody(Melodies.Wawawawaa), MelodyOptions.Once)
         SCmicrobit += 1
         basic.showLeds(`
             . . . . .
@@ -110,6 +121,7 @@ function beslis () {
             `)
         basic.pause(WachtTijd)
     } else if ((KeuzeBSS == 1 && WaardeBSS == 2) == true) {
+        music.startMelody(music.builtInMelody(Melodies.JumpUp), MelodyOptions.Once)
         SCspeler += 1
         basic.showIcon(IconNames.Happy)
         basic.pause(WachtTijd)
@@ -122,6 +134,7 @@ function beslis () {
             `)
         basic.pause(WachtTijd)
     } else if ((KeuzeBSS == 2 && WaardeBSS == 0) == true) {
+        music.startMelody(music.builtInMelody(Melodies.JumpUp), MelodyOptions.Once)
         SCspeler += 1
         basic.showIcon(IconNames.Happy)
         basic.pause(WachtTijd)
@@ -133,31 +146,21 @@ function beslis () {
             # # # # #
             `)
         basic.pause(WachtTijd)
-    } else if ((KeuzeBSS == 2 && WaardeBSS == 1) == true) {
-        SCmicrobit += 1
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            . # # # .
-            # . . . #
-            `)
-        basic.pause(WachtTijd)
-        basic.showLeds(`
-            # . # # #
-            . # . . .
-            # . # # #
-            . . . . .
-            . . # . .
-            `)
-        basic.pause(WachtTijd)
     } else {
         basic.showLeds(`
-            # . . . #
-            . # . # .
-            . . # . .
-            . # . # .
-            # . . . #
+            . . . . .
+            . # # # .
+            . . . . .
+            . # # # .
+            . . . . .
+            `)
+        basic.pause(WachtTijd)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
             `)
     }
 }
