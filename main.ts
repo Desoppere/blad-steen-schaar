@@ -5,13 +5,13 @@ function SpelerBSS () {
     	
     }
     if (input.buttonIsPressed(Button.AB)) {
-        KeuzeBSS = 0
+        KeuzeBSS = 2
     }
     if (input.buttonIsPressed(Button.B)) {
         KeuzeBSS = 1
     }
     if (input.buttonIsPressed(Button.A)) {
-        KeuzeBSS = 2
+        KeuzeBSS = 0
     }
 }
 // Laat de microbit zijn Blad Steen of Schaar kiezen.0=Blad 1=Steen 2=Schaar
