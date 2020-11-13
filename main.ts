@@ -1,4 +1,4 @@
-let KeuzeBSS2 = 0
+let KeuzeBSS = 0
 let WaardeBSS = 0
 // keuze BSS van de Speler
 function SpelerBSS () {
@@ -20,17 +20,17 @@ function SpelerBSS () {
             `)
     }
     if (input.buttonIsPressed(Button.A)) {
-        KeuzeBSS2 = 0
+        KeuzeBSS = 0
     }
     if (input.buttonIsPressed(Button.B)) {
-        KeuzeBSS2 = 1
+        KeuzeBSS = 1
     }
     if (input.buttonIsPressed(Button.AB)) {
-        KeuzeBSS2 = 2
+        KeuzeBSS = 2
     }
 }
 // Laat de microbit zijn Blad Steen of Schaar kiezen.0=Blad 1=Steen 2=Schaar
-function KeuzeBSS () {
+function KeuzeBSS2 () {
     WaardeBSS = randint(0, 2)
 }
 // Aftellen naar blad Steen Schaar
@@ -58,7 +58,7 @@ function Aftel () {
         `)
 }
 function beslis () {
-    if (WaardeBSS == KeuzeBSS2) {
+    if (KeuzeBSS == WaardeBSS) {
         basic.showLeds(`
             . . . . .
             . # # # .
@@ -67,8 +67,23 @@ function beslis () {
             . . . . .
             `)
         SpelerBSS()
+    } else if (KeuzeBSS == 0 && WaardeBSS == 1) {
+        basic.showIcon(IconNames.Happy)
+        basic.showLeds(`
+            # # # # #
+            . . . . .
+            . # # # .
+            . # # # .
+            . # # # .
+            `)
     } else {
-    	
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
     }
 }
 basic.forever(function () {
