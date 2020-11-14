@@ -193,6 +193,7 @@ function beslis () {
             `)
         basic.pause(WachtTijd)
     } else {
+        music.startMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.Once)
         basic.showLeds(`
             . . . . .
             . # # # .
@@ -211,7 +212,7 @@ let WaardeBSS = 0
 let KeuzeBSS = 0
 ScoreNul()
 basic.forever(function () {
-    while (0 < 3 && SCmicrobit < 3) {
+    while (SCspeler < 3 && SCmicrobit < 3) {
         spel()
     }
     if (SCspeler == 3) {
@@ -232,5 +233,6 @@ basic.forever(function () {
             . # # # .
             # . . . #
             `)
+        basic.clearScreen()
     }
 })
