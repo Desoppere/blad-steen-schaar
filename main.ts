@@ -51,9 +51,6 @@ function Aftel () {
         . . # # .
         `)
 }
-function doenNiets () {
-	
-}
 function spel () {
     KeuzeBSS2()
     Aftel()
