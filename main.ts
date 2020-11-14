@@ -74,14 +74,41 @@ function beslis () {
         SCspeler += 1
         basic.showIcon(IconNames.Happy)
         basic.pause(WachtTijd)
-        basic.showLeds(`
+        images.createImage(`
             # # # # #
             . . . . .
+            . . . . .
+            . . # . .
+            . . . . .
+            `).showImage(0)
+        images.createImage(`
             . # # # .
+            # . . . #
+            . . . . .
+            . . # . .
+            . . . . .
+            `).showImage(0)
+        images.createImage(`
             . # # # .
+            # . . . #
+            # . # . #
+            . . . . .
+            . . . . .
+            `).showImage(0)
+        images.createImage(`
             . # # # .
-            `)
-        basic.pause(WachtTijd)
+            # . . . #
+            # . # . #
+            # . . . #
+            . . . . .
+            `).showImage(0)
+        images.createImage(`
+            . # # # .
+            # . . . #
+            # . # . #
+            # . . . #
+            . # # # .
+            `).showImage(0)
     } else if ((KeuzeBSS == 0 && WaardeBSS == 2) == true) {
         music.startMelody(music.builtInMelody(Melodies.Wawawawaa), MelodyOptions.Once)
         SCmicrobit += 1
