@@ -22,32 +22,51 @@ function SpelerBSS () {
 function KeuzeBSS2 () {
     WaardeBSS = randint(0, 2)
 }
+function ScoreNul () {
+    WachtTijd = 1000
+    SCspeler = 0
+    SCmicrobit = 0
+}
 // Aftellen naar blad Steen Schaar
 function Aftel () {
     basic.showLeds(`
-        # # # # #
-        # # # # #
-        # # # # #
-        # # # # #
-        # # # # #
+        . # . . .
+        . # . . .
+        . # # # .
+        . # . # .
+        . # # # .
         `)
     basic.showLeds(`
-        . . . . .
-        . # # # .
-        . # # # .
-        . # # # .
-        . . . . .
-        `)
-    basic.showLeds(`
-        . . . . .
-        . . . . .
+        . # # . .
+        # . . . .
+        . # . . .
         . . # . .
-        . . . . .
-        . . . . .
+        # # . . .
+        `)
+    basic.showLeds(`
+        . . . # #
+        . . # . .
+        . . . # .
+        . . . . #
+        . . # # .
         `)
 }
 function doenNiets () {
 	
+}
+function spel () {
+    KeuzeBSS2()
+    Aftel()
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
+    // keuze BSS van de Speler
+    SpelerBSS()
+    beslis()
 }
 function beslis () {
     if ((KeuzeBSS == 2 && WaardeBSS == 1) == true) {
@@ -182,32 +201,36 @@ function beslis () {
             . . . . .
             `)
         basic.pause(WachtTijd)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
+        basic.clearScreen()
     }
 }
+let SCmicrobit = 0
+let SCspeler = 0
+let WachtTijd = 0
 let WaardeBSS = 0
 let KeuzeBSS = 0
-let WachtTijd = 0
-WachtTijd = 1000
-let SCspeler = 0
-let SCmicrobit = 0
+ScoreNul()
 basic.forever(function () {
-    KeuzeBSS2()
-    Aftel()
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        `)
-    // keuze BSS van de Speler
-    SpelerBSS()
-    beslis()
+    while (0 < 3 && SCmicrobit < 3) {
+        spel()
+    }
+    if (SCspeler == 3) {
+        basic.clearScreen()
+        basic.showIcon(IconNames.Happy)
+        music.startMelody(music.builtInMelody(Melodies.Entertainer), MelodyOptions.Once)
+        basic.clearScreen()
+        basic.showString("You win !")
+    } else {
+        music.startMelody(music.builtInMelody(Melodies.Blues), MelodyOptions.Once)
+        basic.clearScreen()
+        basic.showString("You loose !")
+        basic.clearScreen()
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            . # # # .
+            # . . . #
+            `)
+    }
 })
