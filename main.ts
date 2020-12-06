@@ -7,13 +7,15 @@ function SpelerBSS () {
     }
     basic.pause(200)
     if (input.buttonIsPressed(Button.AB)) {
-        KeuzeBSS = 2
         basic.pause(500)
+        KeuzeBSS = 2
     }
     if (input.buttonIsPressed(Button.B)) {
+        basic.pause(500)
         KeuzeBSS = 1
     }
     if (input.buttonIsPressed(Button.A)) {
+        basic.pause(500)
         led.plot(KeuzeBSS, 0)
         KeuzeBSS = 0
     }
